@@ -1,0 +1,60 @@
+<?php
+/**
+ * Created by PhpStorm.
+ * User: svatoslavzilicev
+ * Date: 22.03.14
+ * Time: 0:42
+ */
+
+?>
+
+<html>
+<head>
+    <title>Localhost Sites</title>
+    <link rel="stylesheet" type="text/css" href="<?php echo 'http://'.$_SERVER['HTTP_HOST'].'/skin/styles.css' ?>">
+</head>
+<body>
+<div class="header-text" style="text-align: center; width: 100%">
+    <h1>Loacalhost sites Install</h1>
+</div>
+<div class="main">
+    <div class="addnew">
+        <div class="add-new" >
+            <form id="addsiteform" action="<?php echo 'http://'.$_SERVER['HTTP_HOST'].'/install.php' ?>" method="post">
+                <div class="line">
+                    <label for="driver">Database Type</label>
+                    <select id="driver" name="driver">
+                        <option value="mysql">MySQL</option>
+                    </select>
+                    <div class="clear"></div>
+                </div>
+                <div class="line">
+                    <label for="host">Host</label>
+                    <input id="host" name="host" type="text"/>
+                    <div class="clear"></div>
+                </div>
+                <div class="line">
+                    <label for="username">Username</label>
+                    <input id="username" name="username" type="text""/>
+                    <div class="clear"></div>
+                </div>
+                <div class="line">
+                    <label for="password">Password</label>
+                    <input id="password" name="password" type="text""/>
+                    <div class="clear"></div>
+                </div>
+                <div class="line">
+                    <label for="db_name">Database Name</label>
+                    <input id="db_name" name="db_name" type="text">
+                    <div class="clear"></div>
+                </div>
+                <div class="add-new-buttonset">
+                    <button type="submit">Add</button>
+                    <div class="clear"></div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,16 @@
+<?php
+/**
+ * Created by PhpStorm.
+ * User: svatoslavzilicev
+ * Date: 19.03.14
+ * Time: 16:55
+ */
+?>
+<h3>We Found some directories, which look like a sites root dir. Please, check!</h3>
+<div class="search">
+    <ul>
+    <?php foreach ($_SESSION['search_sites'] as $siteDir): ?>
+            <li><span><?php echo $siteDir ?></span> <a title="ADD" href="<?php  echo BASE_URL.'sites/addSite?path='.$siteDir ?>"><span>+</span></a><span>     </span><a title="DELETE" href="<?php echo BASE_URL.'sites/forgot?path='.$siteDir ?>"><span>-</span></a> </li>
+    <?php endforeach ?>
+    </ul>
+</div>

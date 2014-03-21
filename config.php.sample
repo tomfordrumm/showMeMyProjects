@@ -1,0 +1,22 @@
+<?php
+/**
+ * Configs to connection
+ */
+
+/** Set database driver */
+define('DB_DRIVER',{driver});
+
+/** Set database host  */
+define('DB_HOST',{host});
+
+/** Set database user name */
+define('DB_USER',{username});
+
+/** Set database user Password */
+define('DB_PASSWORD',{password});
+
+/** Set database Name */
+define('DB_NAME',{db_name});
+
+/** set base url */
+define('BASE_URL',{base_url});

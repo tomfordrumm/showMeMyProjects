@@ -1,0 +1,72 @@
+<?php
+/**
+ * Created by PhpStorm.
+ * User: svatoslavzilicev
+ * Date: 19.03.14
+ * Time: 0:30
+ */
+$sites = $_SESSION['sites'];
+?>
+<div class="addnew">
+    <button onclick="document.getElementById('addsiteform').style.display = 'block';">Add</button>
+    <div class="add-new" >
+        <form id="addsiteform" style="display: none;" action="<?php echo BASE_URL.'sites/add' ?>" method="post">
+            <div class="line">
+                <label for="name">Name</label>
+                <input id="name" name="name" type="text"/>
+                <div class="clear"></div>
+            </div>
+            <div class="line">
+                <label for="url">URL</label>
+                <input id="url" name="url" type="text"/>
+                <div class="clear"></div>
+            </div>
+            <div class="line">
+                <label for="path">Path</label>
+                <input id="path" name="path" type="text" value="<?php echo Core::getRootCatalogPath() ?>"/>
+                <div class="clear"></div>
+            </div>
+            <div class="line">
+                <label for="description">Description</label>
+                <textarea id="description" name="description" ></textarea>
+                <div class="clear"></div>
+            </div>
+            <div class="add-new-buttonset">
+                <button type="submit">Add</button>
+                <div class="clear"></div>
+            </div>
+        </form>
+    </div>
+</div>
+<div class="scannew">
+    <button onclick="window.location = '<?php echo BASE_URL.'sites/search' ?>'">Scan New Projects</button>
+</div>
+<div class="clear"></div>
+<div>
+    <?php $k =0 ?>
+    <? foreach ($sites as $site): ?>
+        <?php $k++ ?>
+        <div class="site-info<?php if ($k % 3 == 0) echo '-last' ?>">
+            <div class="site-name"><h3><?php echo $site['name'] ?></h3></div>
+            <span>Delete from:</span>
+            <div>
+                <div style="float: left">
+                    <button onclick="alert('Do you really want delete this site from DB?');window.location = '<?php echo BASE_URL.'sites/softDel?id='.$site['id'] ?>'">DB</button>
+                </div>
+                <div style="float: left; margin-left: 40px">
+                    <button onclick="alert('Do you really want delete this site from DB and Folder?');window.location = '<?php echo BASE_URL.'sites/hardDel?id='.$site['id'] ?>'">DB and Folder</button>
+                </div>
+                <div style="clear: both"></div>
+            </div>
+            <div class="link">
+                <ul>
+                    <li><span>Root directory - </span><?php echo$site['path'] ?></li>
+                    <li><a href="<?php echo $site['url'] ?>"><span>Go to <?php echo $site['name'] ?> </span></a></li>
+                </ul>
+            </div>
+        </div>
+        <?php if ($k % 3 == 0): ?>
+            <div class="clear" style="min-height: 12px"></div>
+            <?php endif ?>
+    <?php endforeach ?>
+</div>
